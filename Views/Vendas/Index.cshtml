@@ -1,0 +1,42 @@
+﻿@model IEnumerable<VendaDeSementes.Models.Venda>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>VENDAS</h1>
+
+<p>
+    <a class="waves-effect waves-light btn" asp-action="Create">Criar um novo</a>
+    <a class="waves-effect waves-light btn" asp-controller="Consultas" asp-action="VendasPivot">Vendas</a>
+    <a class="waves-effect waves-light btn" asp-controller="Consultas" asp-action="Totalizadores">Resumo Vendas</a>
+   
+
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Consumidor</th>            
+            <th>Data</th>           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <!-- exibir nome do produto -->
+                <td>@item.Produto?.Descricao</td> 
+                <td>@item.Consumidor?.Nome</td>      
+                <td>@item.Data.ToString("dd/MM/yyyy")</td>
+            <td>
+                    <a class="btn-floating btn-Small waves-effect waves-light bleu" asp-action="Edit" asp-route-id="@item.Id"><i class="large material-icons">create</i></a>
+                    <a class="btn-floating btn-Small waves-effect waves-light green" asp-action="Details" asp-route-id="@item.Id"><i class="large material-icons">info_outline</i></a>
+                    <a class="btn-floating btn-Small waves-effect waves-light red" asp-action="Delete" asp-route-id="@item.Id"><i class="large material-icons">delete</i></a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

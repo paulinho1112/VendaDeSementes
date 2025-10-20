@@ -1,0 +1,27 @@
+﻿@model IEnumerable<VendaDeSementes.Models.Produto>
+
+<h2>Produtos Gerados</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Semente</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model)
+        {
+            <tr>
+                <td>@produto.id</td>
+                <td>@produto.Descricao</td>
+                <td>@produto.Preco</td>
+                <td>@produto.Quantidade</td>
+                <td>@produto.semente?.descricao</td>
+            </tr>
+        }
+    </tbody>
+</table>

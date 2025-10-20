@@ -1,0 +1,97 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+
+.card-title {
+    font-weight: 700;
+    font-size: 2.8px; /* Aumenta o tamanho do texto */
+}
+
+.logo {
+    display: flex;
+    transform: scale(0.5);
+    margin-bottom:40px;
+ 
+   
+}
+
+.nav-wrapper {
+    display:flex;
+    transform-origin:top left;
+    background-color: #ba68c8;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.botton-position {
+    display: flex;
+    justify-content:center;
+    
+   
+}
+.delete{
+    color:red
+}
+
+.nav-item1 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    top: 5px; 
+    margin-left: 1200px; 
+    margin-top: 0px;
+}
+
+.nav-item2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    top: 5px; 
+    margin-left: 1400px; 
+    margin-top: -80px;
+    color:white;
+}
+.nav-item3 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 1400px;
+    margin-top: -72px;
+    color: white;
+}
+.nav-item4 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 1100px;
+    margin-top: -70px;
+    
+}

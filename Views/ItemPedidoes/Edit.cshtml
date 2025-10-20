@@ -1,0 +1,51 @@
+﻿@model VendaDeSementes.Models.ItemPedido
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>ItemPedido</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="PedidoID" class="control-label"></label>
+                <input asp-for="PedidoID" class="form-control" />
+                <span asp-validation-for="PedidoID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProdutoID" class="control-label"></label>
+                <input asp-for="ProdutoID" class="form-control" />
+                <span asp-validation-for="ProdutoID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantidade" class="control-label"></label>
+                <input asp-for="Quantidade" class="form-control" />
+                <span asp-validation-for="Quantidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label"></label>
+                <input asp-for="Preco" class="form-control" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<div class="botton-position">
+    <a class="waves-effect waves-light btn" asp-action="Index">Voltar para lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

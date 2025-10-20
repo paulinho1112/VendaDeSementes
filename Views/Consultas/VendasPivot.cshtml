@@ -1,0 +1,42 @@
+﻿@model IEnumerable<VendaDeSementes.Models.VendaPivot>
+
+<h2>Resumo de Vendas por Produto e Mês</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Produto</th>
+            @for (int mes = 1; mes <= 12; mes++)
+            {
+                <th>@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(mes)</th>
+            }
+            <th>Total</th> <!-- Coluna para o total do produto -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Produto</td>
+                @for (int mes = 1; mes <= 12; mes++)
+                {
+                    <td>@(item.VendasPorMes.ContainsKey(mes) ? item.VendasPorMes[mes].ToString("C") : "-")</td>
+                }
+                <td>@item.VendasPorMes.Values.Sum().ToString("C")</td> <!-- Soma dos valores por produto -->
+            </tr>
+        }
+
+        <!-- Linha de totalizadores -->
+        <tr>
+            <th>Total Geral</th>
+            @for (int mes = 1; mes <= 12; mes++)
+            {
+                <th>
+                    @Model.Sum(item => item.VendasPorMes.ContainsKey(mes) ? item.VendasPorMes[mes] : 0).ToString("C")
+                </th>
+            }
+            <th>
+                @Model.Sum(item => item.VendasPorMes.Values.Sum()).ToString("C") <!-- Soma geral -->
+            </th>
+        </tr>
+    </tbody>
+</table>

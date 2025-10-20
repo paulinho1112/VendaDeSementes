@@ -1,0 +1,50 @@
+﻿@model VendaDeSementes.Models.Venda
+
+@{
+    ViewData["Title"] = "Create Venda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CRIAR</h1>
+
+<h4>Venda</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ProdutoID" class="control-label"></label>
+                <select asp-for="ProdutoID" class="form-control" asp-items="ViewBag.Produtos">
+                    <option value="">Selecione um produto</option>
+                </select>
+                <span asp-validation-for="ProdutoID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConsumidorID" class="control-label"></label>
+                <select asp-for="ConsumidorID" class="form-control" asp-items="ViewBag.Consumidores">
+                    <option value="">Selecione um consumidor</option>
+                </select>
+                <span asp-validation-for="ConsumidorID" class="text-danger"></span>
+            </div>     
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="botton-position">
+    <a class="waves-effect waves-light btn" asp-action="Index">Voltar para lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
